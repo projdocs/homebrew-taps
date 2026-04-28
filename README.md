@@ -1,6 +1,6 @@
 # homebrew-taps
 
-> Warning: files in Formula/* are auto-generated during each push
+> Warning: files in Formula/* are auto-generated during each push (and auto-updated every day at midnight)
 
 ## Packages
 
