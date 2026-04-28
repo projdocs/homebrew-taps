@@ -27,6 +27,7 @@ func main() {
 		log.Fatalf("Error creating dist directory: %s", err)
 	}
 
+	latest := true
 	for _, tap := range taps {
 		if releases, err := tap.DownloadReleases(); err != nil {
 			fmt.Printf("Error downloading releases: %s\n", err.Error())
@@ -43,8 +44,16 @@ func main() {
 					if err := os.WriteFile(filename, []byte(formulaFile), 0644); err != nil {
 						log.Fatalf("Error writing formula file %s: %s", filename, err)
 					}
-
 					log.Printf("Wrote %s", filename)
+
+					if latest {
+						latest = false
+						filename = filepath.Join(distDir, fmt.Sprintf("%s.rb", strings.ToLower(tap.Name)))
+						if err := os.WriteFile(filename, []byte(formulaFile), 0644); err != nil {
+							log.Fatalf("Error writing latest formula file %s: %s", filename, err)
+						}
+						log.Printf("Wrote %s (latest)", filename)
+					}
 				}
 			}
 		}
