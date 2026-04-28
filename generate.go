@@ -40,7 +40,7 @@ func main() {
 				} else if formulaFile, err := formula.Render(); err != nil {
 					log.Fatalln(fmt.Sprintf("Error generating formula file for %s (%s): %s ", tap.Name, *release.TagName, err.Error()))
 				} else {
-					filename := filepath.Join(distDir, fmt.Sprintf("%s@%s.rb", strings.ToLower(tap.Name), *release.TagName))
+					filename := filepath.Join(distDir, fmt.Sprintf("%s@%s.rb", strings.ToLower(tap.Name), strings.TrimPrefix(*release.TagName, "v")))
 					if err := os.WriteFile(filename, []byte(formulaFile), 0644); err != nil {
 						log.Fatalf("Error writing formula file %s: %s", filename, err)
 					}

@@ -60,7 +60,7 @@ func NewFormulaData(p *types.Package, r *github.RepositoryRelease) (*FormulaData
 		BinaryPrefix: p.Binary,
 		Desc:         p.Desc,
 		Homepage:     fmt.Sprintf("https://github.com/%s/%s", p.Repo.Owner, p.Repo.Name),
-		Version:      *r.TagName,
+		Version:      strings.TrimPrefix(*r.TagName, "v"),
 		Assets:       assets,
 	}, nil
 }
