@@ -51,7 +51,7 @@ func NewFormulaData(p *types.Package, r *github.RepositoryRelease) (*FormulaData
 		default:
 			continue
 		}
-		target.SHA256 = *a.Digest
+		target.SHA256 = strings.Split(*a.Digest, ":")[1]
 		target.URL = url
 	}
 
