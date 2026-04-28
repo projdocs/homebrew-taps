@@ -12,9 +12,10 @@ type Repo struct {
 }
 
 type Package struct {
-	Name string
-	Repo Repo
-	Desc string
+	Name   string
+	Binary string
+	Repo   Repo
+	Desc   string
 }
 
 func (p *Package) DownloadReleases() ([]*github.RepositoryRelease, error) {

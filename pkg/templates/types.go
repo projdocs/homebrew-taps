@@ -56,8 +56,8 @@ func NewFormulaData(p *types.Package, r *github.RepositoryRelease) (*FormulaData
 	}
 
 	return &FormulaData{
-		Name:         p.Name,
-		BinaryPrefix: p.Name,
+		Name:         strings.ToUpper(p.Name),
+		BinaryPrefix: p.Binary,
 		Desc:         p.Desc,
 		Homepage:     fmt.Sprintf("https://github.com/%s/%s", p.Repo.Owner, p.Repo.Name),
 		Version:      *r.TagName,
