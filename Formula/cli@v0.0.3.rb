@@ -1,4 +1,4 @@
-class projdocs < Formula
+class CLI < Formula
   desc "a CLI to self-host ProjDocs"
   homepage "https://github.com/projdocs/cli"
   version "v0.0.3"
