@@ -1,7 +1,7 @@
 class Cli < Formula
   desc "a CLI to self-host ProjDocs"
   homepage "https://github.com/projdocs/cli"
-  version "v0.0.2"
+  version "0.0.2"
 
   on_macos do
     on_arm do
